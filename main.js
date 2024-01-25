@@ -1,12 +1,12 @@
 
-const X_class = "x"
-const Circle_class = "circle"
-const cellElements = document.querySelectorAll("[data-cell]")
-const screenMessageTextElement = document.querySelector("[data-screen-message-text]")
-const screenMessageElement = document.getElementById("screenMessage")
-const resetButton = document.getElementById("resetButton")
-const restartButton = document.getElementById("restartButton")
-let circleTurn
+const X_class = "x";
+const Circle_class = "circle";
+const cellElements = document.querySelectorAll("[data-cell]");
+const screenMessageTextElement = document.querySelector("[data-screen-message-text]");
+const screenMessageElement = document.getElementById("screenMessage");
+const resetButton = document.getElementById("resetButton");
+const restartButton = document.getElementById("restartButton");
+let circleTurn;
 
 // condition de victoire 5 lignes
 const winning = [
@@ -22,28 +22,28 @@ const winning = [
     [4,9,14,19,24],
     [0,6,12,18,24],
     [4,8,12,16,20]
-]
+];
 
 // appel de fonction reset
-startGame()
+startGame();
 
 // 2 boutons reset qui lance ma fonction start game
-resetButton.addEventListener("click", startGame)
-restartButton.addEventListener("click", startGame)
+resetButton.addEventListener("click", startGame);
+restartButton.addEventListener("click", startGame);
 
 
 // descirption le tour n'est pas le tour cercle, 
 // pour chaque class des cellules j'enleve le "x" ou "circle" / je retire la condition d'un seul click par cellule et je la remets pour reset
 // j'enleve ma page de fin de jeu
 function startGame(){
-    circleTurn = false
+    circleTurn = false;
     cellElements.forEach(cell => {
         cell.classList.remove("x")
         cell.classList.remove("circle")
         cell.removeEventListener("click", handleclick)
         cell.addEventListener('click', handleclick, {once: true})
-})
-screenMessageElement.classList.remove("active")
+});
+screenMessageElement.classList.remove("active");
 }
 
 
@@ -54,8 +54,8 @@ screenMessageElement.classList.remove("active")
 // verif de la condition de victoire renvoie à l'ecran de fin sinon si c'est un match nul renvoie à l'ecran de fin sinon change de tour
 
 function handleclick(e){
-    const cell = e.target
-    const currentClass = circleTurn ? Circle_class : X_class
+    const cell = e.target;
+    const currentClass = circleTurn ? Circle_class : X_class;
     placeMark(cell,currentClass)
     if (checkWin(currentClass)){
         endGame(false)
@@ -70,7 +70,7 @@ function handleclick(e){
 
 function isDraw() {
     return [...cellElements].every(cell => {
-        return cell.classList.contains(X_class) || cell.classList.contains(Circle_class)
+        return cell.classList.contains(X_class) || cell.classList.contains(Circle_class);
     })
 }
 
@@ -82,19 +82,19 @@ function endGame(draw) {
     }  else{
         screenMessageTextElement.innerText = `${circleTurn ? "Joueur O" : "Joueur X"} a gagné !`
     }
-    screenMessageElement.classList.add("active")
+    screenMessageElement.classList.add("active");
 }
 
 //fonction changement de tour, circleTurn passe de true a false ou inversement
 
 function swapTurns(){
-    circleTurn = !circleTurn
+    circleTurn = !circleTurn;
 }
 
 
 //fonction de modification de la class cell en lui donnant soit X_class("div class=cell x") ou Circle_class ("div class=cell circle")
 function placeMark(cell, currentClass){
-    cell.classList.add(currentClass)
+    cell.classList.add(currentClass);
 }
 
 // fonction de win pour chaque combinaison vérifie que les combinaisons gagnantes fassent partie des combinaisons trouvables dans le [] de currentClass
