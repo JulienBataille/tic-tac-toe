@@ -130,3 +130,11 @@ body{
 .screen_message.active{
     display: flex;
 }
+
+#restartButton{
+    font-size: 2rem;
+    border: 1px solid black;
+    padding: 0.25em, 0.5em;
+    cursor: pointer;
+    background-color: white;
+}
