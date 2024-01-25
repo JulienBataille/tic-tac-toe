@@ -1,5 +1,6 @@
 *, *::after, *::before {
     box-sizing: border-box;
+    transition: 0.2s ease-in-out;
 }
 
 :root{
@@ -120,24 +121,23 @@ body{
     flex-direction: column;
 }
 .screen_message button{
-    font-size: 2rem;
-    border: 1px solid black;
-    padding: 0.25em, 0.5em;
+    color: white;
+    background-color: #FF2E63;
+    padding: 10px 25px;
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
     cursor: pointer;
-    background-color: white;
+}
+.screen_message button:hover{
+    padding: 10px 40px;
+    background-color: #08D9D6;
+    color: #000;
+   
 }
 
 .screen_message.active{
     display: flex;
-}
-
-#restartButton{
-    font-size: 2rem;
-    border: 1px solid black;
-    padding: 0.25em, 0.5em;
-    cursor: pointer;
-    background-color: white;
-    position: absolute;
 }
 
 #restart{
@@ -153,5 +153,24 @@ body{
 }
 
 .cell:hover{
-    background-color: #55555531;
+    background-color: #cacaca7e;
+    z-index: 1;
+}
+
+#restartButton:hover{
+    padding: 10px 40px;
+    background-color: #08D9D6;
+    color: #000;
+    position: absolute;
+}
+
+#restartButton{
+    color: white;
+    background-color: #FF2E63;
+    padding: 10px 25px;
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
 }
