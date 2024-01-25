@@ -19,7 +19,7 @@ body{
 
 .grille{
     width: 100vw;
-    height: 100vh;
+    height: 90vh;
     display: grid;
     justify-content: center;
     justify-items: center;
@@ -112,7 +112,7 @@ body{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.671);
+    background-color: rgba(0, 0, 0, 0.9);
     justify-content: center;
     align-items: center;
     color: white;
@@ -137,4 +137,21 @@ body{
     padding: 0.25em, 0.5em;
     cursor: pointer;
     background-color: white;
+    position: absolute;
+}
+
+#restart{
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    position: relative ;
+    
+}
+
+.cell:hover{
+    background-color: #55555531;
 }
