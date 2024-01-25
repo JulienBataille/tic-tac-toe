@@ -1,3 +1,4 @@
+
 const X_class = "x"
 const Circle_class = "circle"
 const cellElements = document.querySelectorAll("[data-cell]")
